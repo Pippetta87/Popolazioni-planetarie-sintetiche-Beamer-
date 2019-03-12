@@ -1,0 +1,108 @@
+\documentclass[10pt,xcolor={usenames},fleqn,serif]{beamer}
+\listfiles
+
+%% colors
+\definecolor{darklava}{rgb}{0.28, 0.24, 0.2}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+\definecolor{violetw}{rgb}{0.93, 0.51, 0.93}
+\definecolor{Veronica}{rgb}{0.63, 0.36, 0.94}
+\definecolor{atomictangerine}{rgb}{1.0, 0.6, 0.4}
+\definecolor{darkgray}{rgb}{0.66, 0.66, 0.66}
+\definecolor{brightcerulean}{rgb}{0.11, 0.67, 0.84}
+\definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{ochre}{rgb}{0.8, 0.47, 0.13}
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+\definecolor{lemon}{rgb}{1.0, 0.97, 0.0}
+\definecolor{grey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{almond}{rgb}{0.94, 0.87, 0.8}
+\definecolor{bf}{RGB}{88, 86, 88}
+\definecolor{bb}{RGB}{177, 177, 177}
+\definecolor{blue(pigment)}{rgb}{0.2, 0.2, 0.6}
+\definecolor{darkpastelgreen}{rgb}{0.01, 0.75, 0.24}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% importa pacchetti
+\usepackage{usepkg}
+\usepackage{mybiblatex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Beamer set up
+\usepackage{beamersetup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni generali
+\usepackage{functions}
+%http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\newcommand{\setmuskip}[2]{#1=#2\relax} %%problem usinig mu with calc (req by mathtools) loaded
+\usepackage{sources}
+%\usepackage{length}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni per questo file main
+\usepackage{mathOp}
+\def\status{coazione}%ripeter
+\def\keeptrying{coazione}
+\usepackage{LocalF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Popolazioni planetarie sintetiche}
+% A subtitle is optional and this may be deleted
+\subtitle{Osservazioni degli esopianeti. Scenario core accretion. Modelli di formazione planetaria globale.}
+%\author{F.~Author\inst{1} \and S.~Another\inst{2}}
+%\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
+\date{\today}
+\subject{Seminario popolazioni planetarie settembre}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\input{tikzdir}%%contain tikz files as filecontents
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+% Section and subsections will appear in the presentation overview
+% and table of contents.
+%\frame{\tableofcontents[onlyparts]}
+
+\begin{frame}{TOC}
+\tableofcontents[onlyparts]
+\end{frame}
+
+\begin{frame}[label={intro}]{Popolazione esopianeti osservati e scopo popolazioni sintetiche}
+\begin{figure}[!ht]
+	\includegraphics[trim={0cm 0 0 0},clip, width=0.75\textwidth]{obsMa}
+	\caption{Diagramma massa-distanza degli esopianeti in ''The extrasolar planet encyclopedia''. Rosso, celeste, magenta e verde sono pianeti rivelati tramite RV, T, osservazione diretta e microlensing. Da \cite{mordasini2018planetary}.}\label{fig:Maplot}
+\end{figure}
+\end{frame}
+
+\begin{wordonframe}{Popolazioni planetarie sintetiche: doppio ruolo sistema solare, survey RV (mass metallicity period distro), T(radius) ...}
+In questo seminario ho studiato come si costruisce una popolazione sintetica. L'obiettivo (della simulazione di popolazione planetaria) \'e generare una popolazione planetaria che sia in accordo con le osservazioni a partire da combinazione casuale di condizioni iniziali del disco protoplanetario.(Si parametrizzano le condizioni iniziali il cui valore \'e distribuito in accordo alle osservazioni)
+
+In questa slide \'e rappresentata la popolazione osservata nel diagramma massa-distanza: la posizione di un pianeta nel diagramma riflette la sua storia di formazione, migrazione (ed evoluzione dinamica). Gli esopianeti sono distribuiti su ampia regione del diagramma con regioni pi\'u dense o dove c'\'e minore popolazione: spesso una moltitudine di fenomeni concorre alla forma della distribuzione di esopianeti che \'e possibile individuare con simulazione end to end del processo di formazione.
+(Su cosa mi sono concentrato?)
+
+Ho considerato lo scenario di formazione planetaria di core accretion cercando le caratteristiche tipiche nella distribuzione delle propriet\'a della popolazione..
+
+Core accretion (bottom-top) coagulazione polvere ed eventualmente accrescimento gas, mentre lo scenario alternativo parte dagli addensamenti causati dall'instabilit\'a G del disco.
+
+[Il sistema solare per primo \'e stato il banco di prova delle teorie di formazione di sistemi planetari: loscenario di core accretion trova giustificazione in alcune caratteristiche del sistema solare]
+
+\end{wordonframe}
+
+\begin{wordonframe}{Coazione vs obiettivo - tempo come?}
+ritmo concetto parola
+\end{wordonframe}
+
+\begin{wordonframe}{Concretezza}
+Definire paths!! - argomenti - mio obiettivo: materiale a disposizione, veloce ripasso beamer fatti
+Sistema solare: modello nebulare: punti a favore di core accretion. Massa e tempi scala formazione: struttura orbitale  e tempi accrescimento gas urano nettuno (Mass distribution and planet formation in the solar nebula).
+Popolazione esopianeti: survey RV, T. RV: osservabili, Harps survey, bias osservativi e completezza, distribuzioni massa, distanza orbitale e metallicit\'a stellare. T: osservabili e bias osservativi, kepler, distribuzione periodo e raggio, relazione massa-raggio: densit\'a media.
+\end{wordonframe}
+
+\part{Vincoli osservativi. Sistema solare e popolazione esopianeti.}\linkdest{RV-Texo}
+\input{RV-Texo}
+
+\part{Modello di formazione planetaria secondo lo scenario di core accretion}\linkdest{coreaccretion}
+\input{CAscenario}
+
+\part{Simulazione popolazioni planetarie sintetiche}\linkdest{description}
+\input{synthresult}
+
+\end{document}

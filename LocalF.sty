@@ -1,0 +1,32 @@
+\ProvidesPackage{LocalF}
+
+
+\newcounter{columneqc}
+\stepcounter{equation}
+\newcommand\Label[1]{&\refstepcounter{columneqc}\ (\theequation.\thecolumneqc)\ltx@label{#1}&}
+
+\newcommand{\Exp}[1]{\text{exp}\{#1\}}
+
+\newcommand{\mss}{modello solare standard}
+
+\ifx\status\keeptrying
+\backgroundsetup{
+    placement=center,
+    scale=2,
+    contents={\begin{varwidth}{8cm}{%
+amo il teatro\\ essere me come obiettivo
+}\end{varwidth}},
+    opacity=1
+}
+\setbeamertemplate{background}{\BgMaterial}
+\newenvironment{wordonframe}[1]{\begin{frame}[allowframebreaks]{#1}}{\end{frame}}
+\else
+\newenvironment{wordonframe}[1]{\comment}{\endcomment}
+\fi
+%%for splitidx
+\newenvironment{theindex}
+ {\let\item\par
+  %definitions for subitem etc
+  }{}
+\newcommand\indexspace{}
+\newcommand{\hyperpage}[1]{#1}

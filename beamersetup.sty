@@ -1,0 +1,149 @@
+\ProvidesPackage{beamersetup}
+\setbeamersize{text margin left=1mm,text margin right=10mm} 
+%%%Usefull link
+%tikz-equations:
+%http://www.wekaleamstudios.co.uk/posts/creating-a-presentation-with-latex-beamer-equations-and-tikz/
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+%\setbeamertemplate{caption}{}%\raggedright\insertcaption\par
+
+\hypersetup{pdfpagemode=FullScreen}
+\makeatletter%%see https://tex.stackexchange.com/questions/411987/how-to-fix-hypertargets-directing-links-to-the-line-after-the-target-it-looks-l
+ \newcommand{\linkdest}[1]{\Hy@raisedlink{\hypertarget{#1}{}}}
+\makeatother
+
+\addtobeamertemplate{block begin}{%
+  \setlength{\textwidth}{0.95\textwidth}%
+  \setlength\abovedisplayskip{0pt}%
+}{}
+\addtobeamertemplate{block begin}{\setlength\abovedisplayskip{2pt}\setlength\belowdisplayskip{2pt}\setlength\abovedisplayshortskip{2pt}\setlength\belowdisplayshortskip{2pt}}{}
+\addtobeamertemplate{block begin}{\vspace*{-3pt}}{}
+\addtobeamertemplate{block end}{}{\vspace*{-3pt}}
+
+%\setbeamertemplate{caption}{\insertcaption}
+
+\setbeamercolor{author}{fg=blue}
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{date}{size=\small}
+
+\setbeamertemplate{section page}
+{
+    \begingroup
+    \begin{beamercolorbox}[sep=10pt,center,rounded=true,shadow=true]{section title}
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \endgroup
+}
+
+\setbeamertemplate{subsection page}
+{
+    \begingroup
+    \begin{beamercolorbox}[sep=2pt,center,rounded=true,shadow=true]{section title}% sep= vertical space around text (between text and box border)
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \vspace*{-1.pt}%    \vspace*{10pt}
+    \begin{beamercolorbox}[sep=6pt,center,rounded=true,shadow=true]{subsection title}
+        \usebeamerfont{subsection title}\insertsubsection\par
+    \end{beamercolorbox}
+    \endgroup
+}
+
+    \setbeamerfont{section title}{size=\Large,series=\bfseries}
+    \setbeamerfont{subsection title}{size=\large,series=\bfseries}
+    
+    %\AtBeginDocument{%
+%\addtolength\abovedisplayskip{-0.5\baselineskip}%
+%\addtolength\belowdisplayskip{-1\baselineskip}%
+%\addtolength\abovedisplayshortskip{-0.5\baselineskip}%
+%\addtolength\belowdisplayshortskip{-1\baselineskip}%
+%}
+
+\makeatletter%%from part in toc
+%% number, shortname, page.
+\providecommand\beamer@partintoc[3]{%
+  \ifnum\c@tocdepth=-1\relax
+    % requesting onlyparts.
+    \centering
+    \begin{minipage}{0.6\textwidth}{PART #1:} #2\end{minipage}\vspace{5mm}
+    \par
+  \fi
+}
+\define@key{beamertoc}{onlyparts}[]{%
+  \c@tocdepth=-1\relax%
+}
+\AtBeginPart{%
+\frame{\partpage}
+%\begin{frame}[allowframebreaks]{Outline}%%Outline at begin part
+%% part in toc
+%\addtocontents{toc}{\protect\beamer@partintoc{\the\c@part}{\beamer@partnameshort}{\the\c@page}}%
+%\tableofcontents[currentsection]
+%\end{frame}
+}
+\makeatother%
+
+\setbeamertemplate{navigation symbols}{}
+
+\makeatletter
+\setbeamertemplate{headline}
+{
+    \leavevmode%
+    \hbox{%cosa?
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=4.5ex,dp=1ex,center]{author in head/foot}%
+            \hyperlink{intro}{Intro}
+        \end{beamercolorbox}%fpaths
+        \begin{beamercolorbox}[wd=.3\paperwidth,ht=4.5ex,dp=1ex,center]{author in head/foot}%
+            \hyperlink{obs}{Vincoli osservativi: Sistema solare e esopianeti}
+        \end{beamercolorbox}%
+ \begin{beamercolorbox}[wd=.15\paperwidth,ht=4.5ex,dp=1ex,center]{author in head/foot}%Molecular cloud-PPS?
+           %\hyperlink{collapseformation}{FormScene}-
+\hyperlink{CA}{Core accretion}
+        \end{beamercolorbox}%
+ \begin{beamercolorbox}[wd=.3\paperwidth,ht=4.5ex,dp=1ex,center]{author in head/foot}%rcosa?
+            \hyperlink{Pmodel}{Popolazioni planetarie sintetiche}
+        \end{beamercolorbox}%  
+        \begin{beamercolorbox}[wd=.12\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            %   \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber{} \hspace*{2ex}  / \hspace*{2ex} \inserttotalframenumber
+            \hspace*{2ex} 
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+    \makeatother
+
+%%Display section subsection (title page) at beginning section subsection
+\AtBeginSection{\frame{\sectionpage}}
+\AtBeginSubsection{\frame{\subsectionpage}}
